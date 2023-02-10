@@ -3,7 +3,7 @@ var app = express();
 var bodyParser = require('body-parser');
 const cors = require('cors')
 app.use(bodyParser.json())
-app.use(cors({ origin: ['http://localhost:8080'], }))
+app.use(cors({ origin: ['http://localhost:3001'], }))
 
 const database = require('./config/db');
  

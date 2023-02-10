@@ -1,0 +1,28 @@
+.item-wrapper{
+    display: flex;
+    flex-direction: row;
+}
+
+.item-check-box{
+    width: 5%;
+}
+
+.item-details{
+    width: 95%;
+    color: gray;
+}
+
+.custom-hr{
+    color: gray;
+}
+
+input[type=text] {
+    padding: 2px;
+    border: none;
+    font-size: 16px;
+}
+
+.item-view-mode{
+    color: grey!important;
+    font-size: 16px;
+}
