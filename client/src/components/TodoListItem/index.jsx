@@ -20,33 +20,21 @@ export default function TodoListItem({item: { id, description, isDone } }) {
   }
 
   const handleClickOutside = () => {
+    keyDownHandler()
     setIsEdit(false)
   }
 
   useOnClickOutside(ref, handleClickOutside)
 
-  useEffect(() => {
-
-    const keyDownHandler = event => {
-        console.log(description)
-      if (event.key === 'Enter') {
-        event.preventDefault();
-        api.put(`/todo/${id}`, {
-            'description': description 
-        }).then((response) => 
-          console.log('Deu certo')
-        )
-       .catch((err) => {
-            console.error("ops! ocorreu um erro" + err);
-        });
-      }
-    };
-
-    document.addEventListener('keydown', keyDownHandler);
-
-    return () => document.removeEventListener('keydown', keyDownHandler);
-    
-  },[]);
+  const keyDownHandler = () => {
+      
+    api.put(`/todo/${id}`, {'description': description }).then((response) => 
+      console.log('Deu certo')
+    ).catch((err) => {
+        console.error("ops! ocorreu um erro" + err);
+    });
+      
+  };
     
   return (
     <div>
